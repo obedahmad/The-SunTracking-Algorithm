@@ -1,3 +1,4 @@
+//All necessary includes from MINGW and Arduino
 #include <iostream>
 #include <math.h>
 #include <time.h>
@@ -10,6 +11,9 @@
 
 #define  tmYearToCalendar(Y) ((Y) + 1970)  // full four digit year
 
+//
+//Computing Functions for Solar position
+//
 //Local Standard Time Meridian
 double LSTM(double delta) {
     double position = 15 * delta;
@@ -66,18 +70,14 @@ double AA(double latitude, double EA, double DA, double LST, double HRA) {
     }
 }
 
-// constructor
 //
+//Class Methods for SolarTracker Class
+//
+// constructor
 SolarTracker::SolarTracker(const float Lat, const float Lon) {
 	Latitude = Lat * DEG_TO_RAD;
 	Longitude = Lon * DEG_TO_RAD;
 }
-
-// *** public methods: ***
-
-// assign a Time provider function
-//
-
 
 // Get Position for specified time
 SolarTrackerStruct SolarTracker::getSolarPosition(time_t t) {
@@ -95,7 +95,6 @@ float SolarTracker::getSolarElevation(time_t t) {
 	return position.elevation * RAD_TO_DEG;
 }
 
-
 // Get Azimuth for specified time
 //
 float SolarTracker::getSolarAzimuth(time_t t) {
@@ -103,13 +102,7 @@ float SolarTracker::getSolarAzimuth(time_t t) {
 	return position.azimuth * RAD_TO_DEG;
 }
 
-//
-// *** end of public methods: ***
-
-
-// *** beginning of utility functions ***
-//
-
+//Compute function for calculating solar position angles: Azimuth and Elevation
 SolarTrackerStruct calculateSolarPosition(time_t hardwareTime, float Latitude, float Longitude) {
 
 	tmElements_t dividedTime;
@@ -163,5 +156,3 @@ SolarTrackerStruct calculateSolarPosition(time_t hardwareTime, float Latitude, f
 	}
 	return position;
 }
-
-// *** end of utility functions ***
