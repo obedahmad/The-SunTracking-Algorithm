@@ -10,7 +10,7 @@ struct SolarTrackerStruct
 SolarTrackerStruct calculateSolarPosition(time_t tParam, float Latitude, float Longitude);
 
 // Solar Tracker Class
-class SolarTracker
+class SolarTracker 
 {
   private:
 
@@ -24,8 +24,6 @@ class SolarTracker
   public:
 
     SolarTracker(float Latitude, float Longitude);
-
-    static void setTimeProvider(getExternalTime getTimeFunction);
 
     SolarTrackerStruct getSolarPosition(time_t t);
 
