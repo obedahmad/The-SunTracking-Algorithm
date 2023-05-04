@@ -126,9 +126,7 @@ SolarTrackerStruct calculateSolarPosition(time_t hardwareTime, float Latitude, f
         dayNumber = day(hardwareTime);
         time_t current = time(NULL);
         tm *tm_gmt = gmtime(&current);
-
         double diff_seconds = difftime(current, mktime(tm_gmt));
-
         delta = diff_seconds/3600;
 
         lstm = LSTM(delta);
