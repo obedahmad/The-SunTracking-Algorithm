@@ -18,10 +18,20 @@ To use the Sun Positioning Algorithm routines, import the C++ header:
 The `time_t` variable type is used extensively throughout the algorithm and in other various time computations as defined by ISO C. For additional context visit: https://en.cppreference.com/w/c/chrono/time_t.
 
 The following utility functions are available for computing angles:
+
+This returns the struct object for elevation and azimuth angles
 ```c
-getSolarPosition(time_t t); //returns the struct object for elevation and azimuth angles
-getSolarElevation(time_t t); //returns a float for elevation angle
-getSolarAzimuth(time_t t); //returns a float for azimuth angle
+SolarTrackerStruct getSolarPosition(time_t t);
+```
+
+This returns the float value for elevation angle
+```c
+float getSolarElevation(time_t t); //returns a float for elevation angle
+```
+
+This returns the float value for azimuth angle
+```c
+float getSolarAzimuth(time_t t); //returns a float for azimuth angle
 ```
 
 The main compute function for angle calculations is declared as:
@@ -32,7 +42,8 @@ calculateSolarPosition(time_t tParam, float Latitude, float Longitude); //perfor
 ## Behind the Scene
 
 The algorithm is based on various astronomical almanacs that provide a backbone to the mathematical structure of the algorithm. The algorithm works in accordance to the following flowchart:
-![Figure 1](/Algorithm%20Block%20Diagram%201.svg)
+<img src="/Algorithm%20Block%20Diagram%201.svg" width=20 height=20>
+<!-- ![Figure 1]() -->
 
 ## Copyright and license
 
