@@ -41,8 +41,9 @@ calculateSolarPosition(time_t tParam, float Latitude, float Longitude); //perfor
 
 ## Behind the Scene
 
-The algorithm is based on various astronomical almanacs that provide a backbone to the mathematical structure of the algorithm. The algorithm works in accordance to the following flowchart:
-<img src="/Algorithm%20Block%20Diagram%201.svg" width=20 height=20>
+The algorithm is based on various astronomical almanacs that provide a backbone to the mathematical structure of the algorithm. The process of computing angles works in accordance to the following flowchart:
+
+<center><img src="/Algorithm%20Block%20Diagram%201.svg" width=500 height=500></center>
 <!-- ![Figure 1]() -->
 
 ## Copyright and license
